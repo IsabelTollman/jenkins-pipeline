@@ -55,7 +55,7 @@ def imagePrune(containerName){
 }
 
 def imageBuild(containerName, tag){
-    bat "$(docker-machine env default)"
+    bat "docker-machine env default"
     bat "docker-machine build -t $containerName:$tag  -t $containerName --pull --no-cache ."
     echo "Image build complete"
 }
