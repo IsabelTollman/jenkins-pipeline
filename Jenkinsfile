@@ -55,9 +55,9 @@ def imagePrune(containerName){
 }
 
 def imageBuild(containerName, tag){
-    bat "docker rm default"
-    bat "docker create default --driver virtualbox"
-    bat "docker build -t $containerName:$tag  -t $containerName --pull --no-cache ."
+    sh "docker rm default"
+    sh "docker create default --driver virtualbox"
+    sh "docker build -t $containerName:$tag  -t $containerName --pull --no-cache ."
     echo "Image build complete"
 }
 
